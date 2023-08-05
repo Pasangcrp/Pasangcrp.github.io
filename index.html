@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewpot" content="width=device-width, initial-scale=1.0">
-<title>My site!</title>
-</head>
-<body>
-<h1>Welcome to my page</h1>
-<h2>I am Pasang!!!</h2>
-<img src="pasang.jpg" width="400" height="400" alt="my photo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas with Image</title>
+    <style>
+        #myCanvas {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000000;
+            border-radius: 20px 5px 20px 5px;
+        }
 
+        #profile {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to my page</h1>
+    <!-- Add the canvas and the image inside the canvas element -->
+    <canvas id="myCanvas">
+        Your browser does not support the HTML canvas tag.
+    </canvas>
+    <img id="profile" src="pasang.jpg" alt="profile"> <!-- style="display:none;" -->
+
+    <script>
+        // Call the drawCanvas() function once the document is loaded
+        document.addEventListener("DOMContentLoaded", drawCanvas);
+
+        function drawCanvas() {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            var img = document.getElementById("profile");
+            // Draw the image on the canvas at coordinates (0, 0) with canvas width and height
+            ctx.drawImage(img, 0, 0, c.width, c.height);
+        }
+    </script>
 </body>
 
-
-    </html>
+</html>
